@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete User</title>
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/new.css">
+</head>
+
+<body>
+  <h1>Confirm delete "<%= locals.name %>" from family member?</h1>
+  <form action="/del" method="post">
+    <input type="hidden" name="user_id" value="<%= locals.id %>">
+    <button type="submit" style="background-color: <%= color %>; color:black;">Delete</button>
+  </form>
+</body>
+
+</html>

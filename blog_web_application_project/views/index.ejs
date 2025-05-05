@@ -1,0 +1,79 @@
+<%-  include('partials/header.ejs') %>
+
+<h1>
+    Blog Web Application
+</h1>
+
+<form action="/post" method="post">
+   <div>
+    <label> Enter your post</label>
+    <textarea type="text" name="postdata" required>
+
+    </textarea>
+    <input type="submit" value="post">
+   </div> 
+</form>
+
+<div>
+    <p id="postContent">
+        <%= locals.data %>
+    </p>
+    <input id="editButton" type="button" value="edit" onclick="editPost()">
+
+    <form id="editForm" style="display: none;" action="/update" method="post">
+        <input type="text" id="editInput" value="<%= locals.data %>" name="updatedData">
+        <button type="submit" onclick="saveEdit()">Save</button>
+        <button type="button" onclick="hideEditForm()">Cancel</button>
+    </form>
+    
+    <input id="deleteButton" type="button" value="delete" onclick="deletePost()">
+
+    <form  id="deleteForm" style="display: none;" action="/delete" method="post">
+        <label >Are you sure deleting it?</label>
+        <button type="submit"  name="confirmDelete" value="true">Yes</button>
+        <button type="button" onclick="hideDeleteForm()">No</button>
+    </form>
+</div>
+
+<script>
+    function editPost(){
+        document.getElementById("editForm").style.display = "block";
+        document.getElementById("editInput").focus();
+        // document.getElementById("editButton").style.display = "none";
+        // document.getElementById("deleteButton").style.display = "none";
+
+    }
+
+
+    function deletePost(){
+        document.getElementById("deleteForm").style.display = "block";
+        // document.getElementById("deleteButton").style.display = "none";
+        // document.getElementById("editButton").style.display = "none";
+        
+
+    }
+
+
+
+
+    function hideEditForm() {
+        document.getElementById("editForm").style.display = "none";
+        // document.getElementById("deleteButton").style.display = "inline";
+        // document.getElementById("editButton").style.display = "inline";
+
+
+        
+    }
+
+    function hideDeleteForm(){
+        document.getElementById("deleteForm").style.display = "none";
+        // document.getElementById("deleteButton").style.display = "inline";
+        // document.getElementById("editButton").style.display = "inline";
+    }
+</script>
+
+
+
+<%-  include('partials/footer.ejs') %>
+
+

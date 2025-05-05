@@ -31,4 +31,4 @@ This is a personal backend learning project built with Node.js, EJS templating, 
 
 ```bash
 git clone https://github.com/yourusername/learning-backend.git
-cd learning-backend
+cd learning-backend-tech
